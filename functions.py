@@ -7,9 +7,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
-HEADLESS = True
-# USERNAME = "user"
-USERNAME = getpass.getuser()
+HEADLESS = False
+USERNAME = "rudd"
+# USERNAME = getpass.getuser()
 PASSWORD = "rudd"
 
 DOMAIN = "http://" + 'webauth.login'
@@ -59,9 +59,9 @@ def login_and_set_time(durration, driver=None):
     submit.click()
     
     driver.switch_to.window(driver.window_handles[1])
-    errorText = driver.find_element_by_id("error_text")
-    sError=errorText.get_attribute("innerHTML")
-    print(f"Error was: {sError}")
+    # errorText = driver.find_element_by_id("error_text")
+    # sError=errorText.get_attribute("innerHTML")
+    # print(f"Error was: {sError}")
 
 
     driver.get(LOGIN_STATUS)
