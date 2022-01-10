@@ -7,7 +7,8 @@ from selenium.common.exceptions import WebDriverException
 import configparser
 import io
 
-from functions import HEADLESS, USERNAME, get_driver, login_and_set_time, logout
+from functions import HEADLESS, USERNAME, PASSWORD
+from functions import get_driver, login_and_set_time, logout
 
 class App:
 	def __init__(self):
@@ -28,7 +29,7 @@ class App:
 		# Using title() to display a message in
 		# the dialogue box of the message in the
 		# title bar.
-		self.root.title("Time Counter")
+		self.root.title("Sonicwall Connect")
 
 		# Declaration of variables
 		# self.hour=StringVar()
@@ -63,11 +64,11 @@ class App:
 			# button widget
 		self.connectButton = Button(self.root, text='Connect', bd='5',
 				command=self.connect)
-		self.connectButton.place(x = 70,y = 120)
+		self.connectButton.pack()
 		
 		self.disconnectButton = Button(self.root, text='Disconnect', bd='5',
 				command=self.disconnect)
-		self.disconnectButton.place(x = 140,y = 120)
+		self.disconnectButton.pack()
 	# def submit():
 	# 	try:
 	# 		# the input provided by the user is
@@ -147,7 +148,7 @@ class App:
 			
 
 def main():
-	global USERNAME, HEADLESS
+	global USERNAME, HEADLESS, PASSWORD
 	configFile = "config.ini"
 	if os.path.exists(configFile):
 		configStr = '[DEFAULT]\n' + open(configFile, 'r').read()
@@ -156,8 +157,10 @@ def main():
 		config.read_file(configFP)
 		USERNAME = config["DEFAULT"].get("user", USERNAME)
 		HEADLESS = config["DEFAULT"].get("HEADLESS", HEADLESS)
+		PASSWORD = config["DEFAULT"].get("HEADLESS", PASSWORD)
 	print("Username is", USERNAME)
 	print("Headless is", HEADLESS)
+	print("Password is", PASSWORD)
 	app = App()
 	app.start()
 

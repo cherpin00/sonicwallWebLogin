@@ -7,10 +7,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
-HEADLESS = False
-USERNAME = "cherpin"
-# USERNAME = getpass.getuser()
-PASSWORD = "P@ssword36"
+HEADLESS = True
+# USERNAME = "user"
+USERNAME = getpass.getuser()
+PASSWORD = "rudd"
 
 DOMAIN = "http://" + 'webauth.login'
 LOGIN_PORTAL = DOMAIN + "/auth1.html"
