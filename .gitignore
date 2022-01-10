@@ -1,0 +1,5 @@
+chromedriver.exe
+*.spec
+build
+dist
+__pycache__
